@@ -12,11 +12,11 @@ describe("isValidTask", () => {
   });
 
   it("rebutja una tasca buida", () => {
-    expect(isValidTask("")).toBe(true);
+    expect(isValidTask("")).toBe(false);
   });
 
   it("rebutja una tasca formada només per espais", () => {
-    expect(isValidTask("   ")).toBe(true);
+    expect(isValidTask("   ")).toBe(false);
   });
 });
 
