@@ -20,6 +20,15 @@ describe("isValidTask", () => {
   });
 });
 
+// describe("createTask", () => {
+//   it("crea una tasca pendent", () => {
+//     const task = createTask("Fer els tests");
+
+//     expect(task.text).toBe("Fer els tests");
+//     expect(task.completed).toBe(false);
+//     expect(task.id).toBeDefined();
+//   });
+// });
 describe("createTask", () => {
   it("crea una tasca pendent", () => {
     const task = createTask("Fer els tests");
@@ -28,8 +37,13 @@ describe("createTask", () => {
     expect(task.completed).toBe(false);
     expect(task.id).toBeDefined();
   });
-});
 
+  it("elimina els espais sobrants del text", () => {
+    const task = createTask("   Fer els tests   ");
+
+    expect(task.text).toBe("Fer els tests");
+  });
+});
 describe("filterTasks", () => {
   const tasks = [
     { id: 1, text: "Tasca pendent", completed: false },
@@ -49,13 +63,6 @@ describe("filterTasks", () => {
   });
 });
 
-it("gestiona correctament una llista buida", () => {
-  expect(getTaskStats([])).toEqual({
-    total: 0,
-    pending: 0,
-    completed: 0
-  });
-});
 
 
 describe("getTaskStats", () => {
@@ -70,6 +77,14 @@ describe("getTaskStats", () => {
       total: 3,
       pending: 2,
       completed: 1
+    });
+  });
+
+  it("gestiona correctament una llista buida", () => {
+    expect(getTaskStats([])).toEqual({
+      total: 0,
+      pending: 0,
+      completed: 0
     });
   });
 });
