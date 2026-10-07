@@ -100,4 +100,110 @@ La branca `main` està protegida per evitar canvis directes i garantir un procé
 
 ## Deploy
 
-L'aplicació està publicada amb **GitHub Pages**
+L'aplicació està publicada amb **GitHub Pages**.
+
+**Web publicada:**
+
+https://amine977129.github.io/DevTasks/
+
+Cada canvi integrat a `main` pot activar automàticament el workflow de desplegament.
+
+---
+
+## Dependències
+
+Les dependències del projecte es gestionen amb **npm**.
+
+El projecte utilitza **Dependabot** per comprovar periòdicament les actualitzacions de:
+
+* Dependències npm del projecte.
+* Dependències utilitzades pels GitHub Actions.
+
+La configuració es troba al fitxer:
+
+```text
+.github/dependabot.yml
+```
+
+Dependabot pot crear Pull Requests automàticament quan detecta actualitzacions disponibles.
+
+---
+
+## Arquitectura
+
+El projecte separa la lògica de l'aplicació de la interfície i de les proves.
+
+### `app.js`
+
+`app.js` gestiona principalment la interfície de l'aplicació i la interacció amb el DOM.
+
+S'encarrega de:
+
+* Gestionar els esdeveniments de la interfície.
+* Llegir les dades introduïdes per l'usuari.
+* Actualitzar la interfície.
+* Mostrar i filtrar les tasques.
+
+### `taskManager.js`
+
+`taskManager.js` conté la lògica relacionada amb la gestió de les tasques.
+
+Inclou funcions per:
+
+* Crear tasques.
+* Validar tasques.
+* Filtrar tasques.
+* Calcular estadístiques.
+
+Aquesta separació permet mantenir la lògica de negoci independent de la interfície.
+
+### `tests/`
+
+La carpeta `tests/` conté les proves automatitzades del projecte.
+
+Les proves comproven que les funcions principals de `taskManager.js` funcionen correctament.
+
+Aquesta separació facilita el manteniment del projecte i permet detectar errors abans d'integrar els canvis a `main`.
+
+---
+
+## Estructura principal
+
+```text
+DevTasks/
+│
+├── .github/
+│   └── workflows/
+│       ├── ci.yml
+│       └── deploy.yml
+│
+├── js/
+│   ├── app.js
+│   └── taskManager.js
+│
+├── tests/
+│   └── app.test.js
+│
+├── .github/
+│   └── dependabot.yml
+│
+├── index.html
+├── style.css
+├── package.json
+├── package-lock.json
+└── README.md
+```
+
+## Tecnologies
+
+* HTML
+* CSS
+* JavaScript
+* Node.js
+* npm
+* Vitest
+* Git
+* GitHub
+* GitHub Actions
+* GitHub Pages
+* Dependabot
